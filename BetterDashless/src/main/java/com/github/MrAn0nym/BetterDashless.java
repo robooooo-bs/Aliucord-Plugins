@@ -19,6 +19,8 @@ import com.discord.widgets.home.WidgetHomeModel;
 @SuppressWarnings("unused")
 public class BetterDashless extends Plugin {
     public String filterString(String orig) {
+		String basis = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890";
+
         char last = 'a';
         StringBuilder builder = new StringBuilder();
         for (char next : orig.toCharArray()) {
@@ -35,7 +37,7 @@ public class BetterDashless extends Plugin {
         }
 
         String result = builder.toString();
-        if (result.isBlank()) {
+        if (result.isEmpty() || result.equals(" ")) {
             return orig;
         } else {
             return result;
@@ -62,7 +64,7 @@ public class BetterDashless extends Plugin {
 							.findViewById(Utils.getResId("channels_item_channel_name", "id"));
 					
                     String name = filterString(channelName.getText().toString());
-					channelName.setText(filtered);
+					channelName.setText(name);
 				}));
 		
 		patcher.patch(WidgetHomeHeaderManager.class, "configure",
@@ -70,8 +72,9 @@ public class BetterDashless extends Plugin {
 				new Hook(callFrame -> {
 					WidgetHomeHeaderManager _this = (WidgetHomeHeaderManager) callFrame.thisObject;
 					WidgetHome widgetHome = (WidgetHome) callFrame.args[0];
-					
-                    String name = filterString(((WidgetHomeModel) callFrame.args[1]).getChannel().m());
+
+					String orig = ((WidgetHomeModel) callFrame.args[1]).getChannel().m().toString();
+                    String name = filterString(orig);
 					widgetHome.setActionBarTitle(name);
 				}));
 	}

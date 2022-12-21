@@ -1,7 +1,10 @@
 version = "1.0.2"
-description = "Replaces dashes in channel names with spaces."
+description = "Replaces punctuation in channel names with spaces."
 aliucord {
     changelog.set("""
+        # 1.1.0
+        * Include all punctuation
+
         # 1.0.2
         * Fixed incompatibility with TwemojiEverywhere
         

@@ -18,6 +18,29 @@ import com.discord.widgets.home.WidgetHomeModel;
 @AliucordPlugin
 @SuppressWarnings("unused")
 public class BetterDashless extends Plugin {
+    public String filterString(String orig) {
+        char last = 'a';
+        StringBuilder builder = new StringBuilder();
+        for (char next : orig.toCharArray()) {
+            if (basis.indexOf(next) == -1) {
+                next = ' ';
+            }
+            
+            if (last == ' ' && next == ' ') {
+                continue;
+            }
+            
+            builder.append(next);
+            last = next;
+        }
+
+        String result = builder.toString();
+        if (result.isBlank()) {
+            return orig;
+        } else {
+            return result;
+        }
+    }
 	
 	@Override
 	public void start(Context context) {
@@ -38,7 +61,8 @@ public class BetterDashless extends Plugin {
 					TextView channelName = binding.getRoot()
 							.findViewById(Utils.getResId("channels_item_channel_name", "id"));
 					
-					channelName.setText(channelName.getText().toString().replace("-", " "));
+                    String name = filterString(channelName.getText().toString());
+					channelName.setText(filtered);
 				}));
 		
 		patcher.patch(WidgetHomeHeaderManager.class, "configure",
@@ -47,8 +71,8 @@ public class BetterDashless extends Plugin {
 					WidgetHomeHeaderManager _this = (WidgetHomeHeaderManager) callFrame.thisObject;
 					WidgetHome widgetHome = (WidgetHome) callFrame.args[0];
 					
-					widgetHome.setActionBarTitle(
-							((WidgetHomeModel) callFrame.args[1]).getChannel().m().replace("-", " "));
+                    String name = filterString(((WidgetHomeModel) callFrame.args[1]).getChannel().m());
+					widgetHome.setActionBarTitle(name);
 				}));
 	}
 	

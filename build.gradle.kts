@@ -42,8 +42,8 @@ subprojects {
     aliucord {
         author("robo", 110161277707399168L)
         github("https://www.github.com/robooooo-bs/AliucordPlugins")
-        updateUrl.set("https://raw.githubusercontent.com/robooooo-bs/Aliucord-Plugins/builds/updater.json")
-        buildUrl.set("https://raw.githubusercontent.com/robooooo-bs/Aliucord-Plugins/builds/%s.zip")
+//        updateUrl.set("https://raw.githubusercontent.com/robooooo-bs/Aliucord-Plugins/main/updater.json")
+        buildUrl.set("https://raw.githubusercontent.com/robooooo-bs/Aliucord-Plugins/main/%s.zip")
     }
 
     android {

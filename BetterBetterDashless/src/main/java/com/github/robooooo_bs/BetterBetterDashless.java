@@ -1,4 +1,4 @@
-package com.github.MrAn0nym;
+package com.github.robooooo_bs;
 
 import android.content.Context;
 import android.widget.TextView;
@@ -17,7 +17,7 @@ import com.discord.widgets.home.WidgetHomeModel;
 
 @AliucordPlugin
 @SuppressWarnings("unused")
-public class BetterDashless extends Plugin {
+public class BetterBetterDashless extends Plugin {
     public String filterString(String orig) {
 		String basis = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890";
 

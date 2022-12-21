@@ -1,3 +1,3 @@
-include("BetterDashless")
+include("BetterBetterDashless")
 
 rootProject.name = "AliucordPlugins"

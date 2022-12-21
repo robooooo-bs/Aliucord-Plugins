@@ -40,10 +40,10 @@ subprojects {
 
     // Fill out with your info
     aliucord {
-        author("Namenlosxy", 339303461877186560L)
-        github("https://www.github.com/MrAn0nym/AliucordPlugins")
-        updateUrl.set("https://raw.githubusercontent.com/MrAn0nym/Aliucord-Plugins/builds/updater.json")
-        buildUrl.set("https://raw.githubusercontent.com/MrAn0nym/Aliucord-Plugins/builds/%s.zip")
+        author("robo", 110161277707399168L)
+        github("https://www.github.com/robooooo-bs/AliucordPlugins")
+        updateUrl.set("https://raw.githubusercontent.com/robooooo-bs/Aliucord-Plugins/builds/updater.json")
+        buildUrl.set("https://raw.githubusercontent.com/robooooo-bs/Aliucord-Plugins/builds/%s.zip")
     }
 
     android {
